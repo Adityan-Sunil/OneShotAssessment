@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+}
+html, body{
+    height:100%;
+    width:100%;
+    margin:0;
+    background: rgb(230, 230, 248);
+}
+#root{
+    height:100%;
+    width:98%;
+    background: rgb(230, 230, 248);
+    margin-left: 1%;
+    border-radius:10%;
+    padding:10px;
+}
