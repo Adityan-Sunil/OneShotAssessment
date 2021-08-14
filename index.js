@@ -9,12 +9,12 @@ app.use(express.urlencoded({extended:true}));
 const path = require("path");
 
 
-app.use(express.static(path.resolve(__dirname, "./oneshotcollege/build")));
 
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./oneshotcollege/build", "index.html"));
+app.use(express.static(path.join(__dirname, "client", "build")))
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
-
 
 app.listen(process.env.PORT||4000, ()=>{
     console.log("Listening")

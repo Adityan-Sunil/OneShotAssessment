@@ -1,10 +1,21 @@
 {
-    "scripts": {
-        "build": "cd oneshotcollege && npm run build",
-        "install-client": "cd oneshotcollege && npm install",
-        "heroku-postbuild": "npm run install-client && npm run build",
-        "server": "cd backend && npm install && nodemon index.js",
-        "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix oneshotcollege\"",
-        "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix oneshotcollege\""
-    }
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^4.1.0",
+    "nodemon": "^2.0.12"
+  },
+  "engines": {
+    "node": "12.16.2"
+}
 }
