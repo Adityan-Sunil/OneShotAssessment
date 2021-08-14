@@ -30,15 +30,15 @@ function App() {
 
   useEffect(()=>{
     async function getData(){
-      let result = await sendReq('http://localhost:4000/get_popular_college');
+      let result = await sendReq('hget_popular_college');
       getTopCls(result.data);
     }getData();
   },[])
   
   useEffect(() =>{
     async function getData(){
-      let result = await sendReq('http://localhost:4000/get_college', {name:activestateclg});
-      let count_result = await sendReq('http://localhost:4000/get_student_count', {collegeId:parseInt(result.data[0].id)});
+      let result = await sendReq('/get_college', {name:activestateclg});
+      let count_result = await sendReq('/get_student_count', {collegeId:parseInt(result.data[0].id)});
       result.data[0].count = count_result.data[0].count;
       getStateclgdets(result.data);
     }
@@ -48,7 +48,7 @@ function App() {
 
   useEffect(() =>{
     async function getData(){
-      let result = await sendReq('http://localhost:4000/get_college', {state:activeState})
+      let result = await sendReq('/get_college', {state:activeState})
       setclgList(result);
     }
     if(activeState !== undefined)
@@ -57,7 +57,7 @@ function App() {
 
   useEffect(() =>{
     async function getData(){
-      let result = await sendReq('http://localhost:4000/get_college_state')
+      let result = await sendReq('/get_college_state')
       let labels = [];
       let datas = [];
       result.data.forEach(element =>{
@@ -78,7 +78,7 @@ function App() {
 
   useEffect(() =>{
     async function getData(){
-      let result = await sendReq('http://localhost:4000/get_skill_count');
+      let result = await sendReq('/get_skill_count');
       let labels = []
       let datas = []
       result.data.forEach(element => {
@@ -99,7 +99,7 @@ function App() {
 
   useEffect(() =>{
     async function getData(){
-      let result = await sendReq('http://localhost:4000/get_batch_year',{collegeId:activeCollege.id});
+      let result = await sendReq('/get_batch_year',{collegeId:activeCollege.id});
       let labels = [];
       let datas = [];
       getCollege(result.data);
