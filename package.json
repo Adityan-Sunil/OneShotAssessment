@@ -4,7 +4,7 @@
         "install-client": "cd oneshotcollege && npm install",
         "heroku-postbuild": "npm run install-client && npm run build",
         "server": "cd backend && npm install && nodemon server.js",
-        "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
-        "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\""
+        "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix oneshotcollege\"",
+        "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix oneshotcollege\""
     }
 }
