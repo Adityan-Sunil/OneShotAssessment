@@ -30,7 +30,7 @@ function App() {
 
   useEffect(()=>{
     async function getData(){
-      let result = await sendReq('hget_popular_college');
+      let result = await sendReq('/get_popular_college');
       getTopCls(result.data);
     }getData();
   },[])
